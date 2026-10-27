@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aura Luxe Salon & Spa - premium beauty and wellness services in Jaipur.">
+  <title>Aura Luxe | Premium Salon & Spa</title>
+  <link rel="stylesheet" href="./src/output.css">
+</head>
+
+<body class="w-full overflow-x-hidden bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100">
+
+ <!-- Responsive Header -->
+<header class="relative z-50 bg-white dark:bg-stone-900 shadow-sm">
+
+  <nav class="mx-auto max-w-6xl px-6 py-5"
+       aria-label="Main navigation">
+
+    <div class="flex items-center justify-between gap-4">
+
+      <!-- Logo -->
+      <a href="index.html"
+         class="shrink-0 text-xl font-bold tracking-wide text-amber-700 sm:text-2xl">
+        AURA LUXE
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden items-center gap-6 md:flex">
+
+        <a href="index.html"
+           class="hover:text-amber-700 focus-visible:outline-2">
+          Home
+        </a>
+
+        <a href="services.html"
+           class="hover:text-amber-700 focus-visible:outline-2">
+          Services
+        </a>
+
+        <a href="gallery.html"
+           class="hover:text-amber-700 focus-visible:outline-2">
+          Gallery
+        </a>
+
+        <a href="contact.html"
+           class="hover:text-amber-700 focus-visible:outline-2">
+          Contact
+        </a>
+
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="menu-button"
+        type="button"
+        class="rounded-lg border border-amber-700 p-2 text-amber-800 md:hidden"
+        aria-label="Toggle navigation menu"
+        aria-controls="mobile-menu"
+        aria-expanded="false">
+
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="24" height="24"
+             viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2"
+             stroke-linecap="round"
+             stroke-linejoin="round"
+             aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+
+      </button>
+
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu"
+         class="mt-5 hidden flex-col gap-4 border-t border-stone-200 pt-5 md:hidden">
+
+      <a href="index.html" class="hover:text-amber-700">
+        Home
+      </a>
+
+      <a href="services.html" class="hover:text-amber-700">
+        Services
+      </a>
+
+      <a href="gallery.html" class="hover:text-amber-700">
+        Gallery
+      </a>
+
+      <a href="contact.html" class="hover:text-amber-700">
+        Contact
+      </a>
+
+    </div>
+
+  </nav>
+</header>
+  <main>
+  <!-- Luxury Hero Section -->
+  <section class="bg-[#faf6ef] px-6 py-16 lg:py-24">
+
+    <div class="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
+
+      <!-- Left: Hero Content -->
+      <div class="text-center lg:text-left">
+
+        <p class="mb-5 text-sm font-semibold uppercase tracking-[0.25em] text-amber-700">
+          Welcome to Aura Luxe · Jaipur
+        </p>
+
+        <h1 class="mb-6 font-serif text-4xl leading-tight break-words text-stone-900 sm:text-5xl md:text-6xl lg:text-7xl">
+          Discover Your
+          <span class="block italic text-amber-700">
+            Natural Beauty
+          </span>
+        </h1>
+
+        <p class="mx-auto mb-8 max-w-lg text-lg leading-relaxed text-stone-600 lg:mx-0">
+          Indulge in luxurious beauty rituals, expert hair styling,
+          rejuvenating skincare, and personalised spa experiences
+          designed to make you feel extraordinary.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-4 lg:justify-start">
+
+          <a href="contact.html"
+             class="rounded-full bg-amber-700 px-8 py-4 font-semibold text-white transition hover:bg-amber-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700">
+            Book an Appointment
+          </a>
+
+          <a href="services.html"
+             class="rounded-full border border-amber-700 px-8 py-4 font-semibold text-amber-800 transition hover:bg-amber-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700">
+            Explore Services
+          </a>
+
+        </div>
+
+        <div class="mt-12 flex flex-wrap justify-center gap-10 lg:justify-start">
+
+          <div>
+            <p class="text-3xl font-bold text-amber-700">10+</p>
+            <p class="text-sm text-stone-600">Beauty Services</p>
+          </div>
+
+          <div>
+            <p class="text-3xl font-bold text-amber-700">100%</p>
+            <p class="text-sm text-stone-600">Personalised Care</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right: Salon Image -->
+      <div class="relative">
+
+        <img
+          src="./images/salon-hero.jpeg"
+          alt="Elegant salon interior with luxurious styling stations"
+          class="h-[350px] w-full rounded-[2rem] object-cover shadow-2xl sm:h-[450px] lg:h-[550px]"
+        >
+
+        <div class="absolute -bottom-5 left-4 rounded-2xl bg-white p-5 shadow-xl sm:left-8">
+          <p class="font-serif text-xl text-stone-900">
+            Beauty. Elegance. Confidence.
+          </p>
+          <p class="mt-1 text-sm text-amber-700">
+            Your luxury escape awaits
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Signature Services Section -->
+<section class="bg-white px-6 py-20 lg:py-28"
+         aria-labelledby="services-heading">
+
+  <div class="mx-auto max-w-6xl">
+
+    <!-- Section Heading -->
+    <div class="mb-14 text-center">
+
+      <p class="mb-3 text-sm font-semibold uppercase
+                tracking-[0.25em] text-amber-700">
+        Our Expertise
+      </p>
+
+      <h2 id="services-heading"
+          class="mb-5 font-serif text-4xl text-stone-900
+                 md:text-5xl">
+        Our Signature Services
+      </h2>
+
+      <p class="mx-auto max-w-2xl text-stone-600">
+        Discover our carefully curated beauty and wellness
+        experiences, designed to help you look and feel
+        your absolute best.
+      </p>
+
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+
+      <!-- Hair Styling -->
+      <article class="group overflow-hidden rounded-3xl
+                      bg-[#faf6ef] shadow-sm transition
+                      duration-300 hover:-translate-y-2
+                      hover:shadow-xl">
+
+        <div class="overflow-hidden">
+          <img src="./images/hair-service.jpeg"
+               alt="Professional hairstyling treatment"
+               class="h-64 w-full object-cover transition
+                      duration-500 group-hover:scale-105">
+        </div>
+
+        <div class="p-7">
+          <h3 class="mb-3 font-serif text-2xl text-stone-900">
+            Hair Styling
+          </h3>
+
+          <p class="mb-5 text-stone-600">
+            Transform your look with expert cuts,
+            styling and luxurious hair treatments.
+          </p>
+
+          <div class="flex items-center justify-between gap-3">
+            <span class="font-semibold text-amber-800">
+              From ₹799
+            </span>
+
+            <a href="services.html"
+               class="font-semibold text-amber-800
+                      underline-offset-4 hover:underline
+                      focus-visible:outline-2
+                      focus-visible:outline-offset-4">
+              Explore
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Facial & Skincare -->
+      <article class="group overflow-hidden rounded-3xl
+                      bg-[#faf6ef] shadow-sm transition
+                      duration-300 hover:-translate-y-2
+                      hover:shadow-xl">
+
+        <div class="overflow-hidden">
+          <img src="./images/facial-service.jpeg"
+               alt="Relaxing professional facial treatment"
+               class="h-64 w-full object-cover transition
+                      duration-500 group-hover:scale-105">
+        </div>
+
+        <div class="p-7">
+          <h3 class="mb-3 font-serif text-2xl text-stone-900">
+            Facial & Skincare
+          </h3>
+
+          <p class="mb-5 text-stone-600">
+            Reveal radiant skin with personalised
+            facials and rejuvenating skincare rituals.
+          </p>
+
+          <div class="flex items-center justify-between gap-3">
+            <span class="font-semibold text-amber-800">
+              From ₹1,299
+            </span>
+
+            <a href="services.html"
+               class="font-semibold text-amber-800
+                      underline-offset-4 hover:underline
+                      focus-visible:outline-2
+                      focus-visible:outline-offset-4">
+              Explore
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Spa & Wellness -->
+      <article class="group overflow-hidden rounded-3xl
+                      bg-[#faf6ef] shadow-sm transition
+                      duration-300 hover:-translate-y-2
+                      hover:shadow-xl">
+
+        <div class="overflow-hidden">
+          <img src="./images/spa-service.jpeg"
+               alt="Peaceful spa and wellness treatment"
+               class="h-64 w-full object-cover transition
+                      duration-500 group-hover:scale-105">
+        </div>
+
+        <div class="p-7">
+          <h3 class="mb-3 font-serif text-2xl text-stone-900">
+            Spa & Wellness
+          </h3>
+
+          <p class="mb-5 text-stone-600">
+            Escape everyday stress with calming
+            therapies and restorative spa experiences.
+          </p>
+
+          <div class="flex items-center justify-between gap-3">
+            <span class="font-semibold text-amber-800">
+              From ₹1,999
+            </span>
+
+            <a href="services.html"
+               class="font-semibold text-amber-800
+                      underline-offset-4 hover:underline
+                      focus-visible:outline-2
+                      focus-visible:outline-offset-4">
+              Explore
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- View All Services Button -->
+    <div class="mt-12 text-center">
+      <a href="services.html"
+         class="inline-block rounded-full bg-amber-700
+                px-9 py-4 font-semibold text-white
+                transition hover:bg-amber-800
+                focus-visible:outline-2
+                focus-visible:outline-offset-4
+                focus-visible:outline-amber-700">
+        View All Services
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section
+  class="bg-[#faf6ef] px-6 py-20 lg:py-24"
+  aria-labelledby="why-heading"
+>
+  <div class="mx-auto max-w-6xl">
+
+    <!-- Section Heading -->
+    <div class="mb-12 text-center">
+      <p class="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-amber-700">
+        The Aura Luxe Experience
+      </p>
+
+      <h2
+        id="why-heading"
+        class="font-serif text-4xl font-bold text-stone-900 md:text-5xl"
+      >
+        Why Choose Aura Luxe?
+      </h2>
+
+      <p class="mx-auto mt-5 max-w-2xl text-stone-600">
+        We believe every beauty experience should feel
+        personal, relaxing, and truly special.
+      </p>
+    </div>
+
+    <!-- Responsive Cards -->
+    <div class="flex flex-col gap-6 md:flex-row">
+
+      <!-- Expert Care -->
+      <article
+        class="flex-1 rounded-3xl border border-amber-100 bg-white p-8 text-center shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+      >
+        <div class="mb-5 text-5xl" aria-hidden="true">
+          ✨
+        </div>
+
+        <h3 class="mb-3 font-serif text-2xl font-bold text-stone-900">
+          Expert Care
+        </h3>
+
+        <p class="leading-relaxed text-stone-700">
+          Personalised treatments designed around
+          your individual beauty needs.
+        </p>
+      </article>
+
+      <!-- Premium Products -->
+      <article
+        class="flex-1 rounded-3xl border border-amber-100 bg-white p-8 text-center shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+      >
+        <div class="mb-5 text-5xl" aria-hidden="true">
+          🌿
+        </div>
+
+        <h3 class="mb-3 font-serif text-2xl font-bold text-stone-900">
+          Premium Products
+        </h3>
+
+        <p class="leading-relaxed text-stone-700">
+          Carefully selected beauty and wellness
+          products for a luxurious experience.
+        </p>
+      </article>
+
+      <!-- Relaxing Atmosphere -->
+      <article
+        class="flex-1 rounded-3xl border border-amber-100 bg-white p-8 text-center shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+      >
+        <div class="mb-5 text-5xl" aria-hidden="true">
+          💆
+        </div>
+
+        <h3 class="mb-3 font-serif text-2xl font-bold text-stone-900">
+          Relaxing Atmosphere
+        </h3>
+
+        <p class="leading-relaxed text-stone-700">
+          A peaceful space where you can unwind,
+          recharge, and feel refreshed.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Customer Testimonials Section -->
+<section class="bg-white px-6 py-20 lg:py-28"
+         aria-labelledby="testimonials-heading">
+
+  <div class="mx-auto max-w-6xl">
+
+    <div class="mb-14 text-center">
+      <p class="mb-3 text-sm font-semibold uppercase
+                tracking-[0.25em] text-amber-700">
+        Kind Words
+      </p>
+
+      <h2 id="testimonials-heading"
+          class="font-serif text-4xl text-stone-900 md:text-5xl">
+        What Our Clients Say
+      </h2>
+
+      <p class="mx-auto mt-5 max-w-2xl text-stone-600">
+        A glimpse of the relaxing and personalised
+        experiences we aim to create.
+      </p>
+    </div>
+
+    <!-- Testimonial Cards -->
+    <div class="grid gap-8 md:grid-cols-3">
+
+      <article class="rounded-3xl bg-[#faf6ef] p-8 shadow-sm">
+        <p class="mb-5 text-xl text-amber-700"
+           aria-label="5 out of 5 stars">
+          ★★★★★
+        </p>
+
+        <blockquote class="mb-7 leading-relaxed text-stone-700">
+          "The atmosphere was beautiful and relaxing.
+          My hair styling experience was wonderful!"
+        </blockquote>
+
+        <p class="font-semibold text-stone-900">
+          Priya S.
+        </p>
+        <p class="text-sm text-stone-500">
+          Sample client review
+        </p>
+      </article>
+
+      <article class="rounded-3xl bg-[#faf6ef] p-8 shadow-sm">
+        <p class="mb-5 text-xl text-amber-700"
+           aria-label="5 out of 5 stars">
+          ★★★★★
+        </p>
+
+        <blockquote class="mb-7 leading-relaxed text-stone-700">
+          "Such a peaceful experience. The facial
+          treatment left my skin feeling refreshed."
+        </blockquote>
+
+        <p class="font-semibold text-stone-900">
+          Ananya M.
+        </p>
+        <p class="text-sm text-stone-500">
+          Sample client review
+        </p>
+      </article>
+
+      <article class="rounded-3xl bg-[#faf6ef] p-8 shadow-sm">
+        <p class="mb-5 text-xl text-amber-700"
+           aria-label="5 out of 5 stars">
+          ★★★★★
+        </p>
+
+        <blockquote class="mb-7 leading-relaxed text-stone-700">
+          "A lovely place to unwind. The spa
+          experience felt luxurious and calming."
+        </blockquote>
+
+        <p class="font-semibold text-stone-900">
+          Riya K.
+        </p>
+        <p class="text-sm text-stone-500">
+          Sample client review
+        </p>
+      </article>
+
+    </div>
+
+    <p class="mt-8 text-center text-sm text-stone-500">
+      Illustrative testimonials for this fictional business.
+    </p>
+
+  </div>
+</section>
+</main>
+
+  <footer class="bg-stone-900 px-6 py-8 text-center text-white">
+    <p>&copy; 2026 Aura Luxe Salon & Spa. All rights reserved.</p>
+  </footer>
+
+  <script>
+  const menuButton = document.getElementById("menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  menuButton.addEventListener("click", () => {
+    const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+
+    menuButton.setAttribute("aria-expanded", String(!isOpen));
+
+    mobileMenu.classList.toggle("hidden", isOpen);
+    mobileMenu.classList.toggle("flex", !isOpen);
+  });
+</script>
+
+
+</body>
+</html>
