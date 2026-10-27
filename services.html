@@ -3,209 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <meta
     name="description"
     content="Explore luxury hair, skincare, spa and bridal services at Aura Luxe Salon & Spa in Jaipur."
   >
-
   <title>Our Services | Aura Luxe Salon & Spa</title>
 
-  <!-- Tailwind CSS -->
+  <script>
+    // Apply the saved theme before the page displays.
+    try {
+      const savedTheme = localStorage.getItem("aura-theme");
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+
+      document.documentElement.classList.toggle(
+        "dark",
+        savedTheme === "dark" ||
+        (!savedTheme && prefersDark)
+      );
+    } catch (error) {
+      document.documentElement.classList.toggle(
+        "dark",
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      );
+    }
+  </script>
+
   <link rel="stylesheet" href="./src/output.css">
-
-  <!-- Services Page Styling and Visibility Fixes -->
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      overflow-x: hidden;
-    }
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    /* Header */
-    .salon-header {
-      background-color: #ffffff;
-    }
-
-    .salon-header .brand {
-      color: #92400e;
-    }
-
-    /* Services */
-    .services-section {
-      background-color: #fafaf9;
-      color: #1c1917;
-    }
-
-    .services-section h2 {
-      color: #1c1917;
-    }
-
-    .services-section .section-description {
-      color: #57534e;
-    }
-
-    /* Service Cards */
-    .service-card {
-      background-color: #ffffff;
-      color: #1c1917;
-      min-width: 0;
-      overflow: hidden;
-      transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-    }
-
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
-    }
-
-    .service-card h3 {
-      color: #1c1917;
-    }
-
-    .service-card .service-description {
-      color: #57534e;
-    }
-
-    .service-card .service-price {
-      color: #92400e;
-    }
-
-    .service-card img {
-      display: block;
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
-    }
-
-    /* Pricing */
-    .pricing-section {
-      background-color: #fffbeb;
-      color: #1c1917;
-    }
-
-    .pricing-section h2 {
-      color: #1c1917;
-    }
-
-    .pricing-section .section-description {
-      color: #57534e;
-    }
-
-    .pricing-table {
-      background-color: #ffffff;
-      color: #1c1917;
-    }
-
-    .pricing-table thead {
-      background-color: #78350f;
-      color: #ffffff;
-    }
-
-    .pricing-table tbody tr {
-      color: #1c1917;
-    }
-
-    .pricing-table tbody tr:nth-child(even) {
-      background-color: #fafaf9;
-    }
-
-    /* Benefits */
-    .services-benefits {
-      background-color: #faf6ef;
-      color: #1c1917;
-    }
-
-    .services-benefits h2,
-    .services-benefits h3 {
-      color: #1c1917;
-    }
-
-    .services-benefits .section-description,
-    .services-benefits article p {
-      color: #57534e;
-    }
-
-    .benefit-card {
-      background-color: #ffffff;
-      color: #1c1917;
-      min-width: 0;
-      transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-    }
-
-    .benefit-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    }
-
-    .benefit-icon {
-      color: #b45309;
-    }
-
-    /* Mobile */
-    @media (max-width: 767px) {
-      .service-card img {
-        height: 220px;
-      }
-
-      .service-card:hover,
-      .benefit-card:hover {
-        transform: none;
-      }
-
-      .pricing-table {
-        min-width: 480px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      .service-card,
-      .benefit-card {
-        transition: none;
-      }
-    }
-  </style>
 </head>
 
-<body class="bg-stone-50 text-stone-800 dark:bg-stone-950 dark:text-stone-100">
+<body class="bg-stone-50 text-stone-900 transition-colors duration-300 dark:bg-stone-950 dark:text-stone-100">
 
   <!-- HEADER -->
-  <header class="salon-header sticky top-0 z-50 shadow-sm">
+  <header class="sticky top-0 z-50 border-b border-stone-200 bg-white shadow-sm dark:border-stone-700 dark:bg-stone-900">
     <nav
       class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-5"
       aria-label="Main navigation"
     >
-
       <a
         href="index.html"
-        class="brand text-2xl font-bold tracking-wide"
+        class="shrink-0 text-xl font-bold tracking-wide text-amber-800 sm:text-2xl dark:text-amber-400"
       >
         AURA LUXE
       </a>
 
-      <!-- Desktop Navigation -->
-      <div class="hidden items-center gap-8 md:flex">
-
+      <!-- DESKTOP NAVIGATION -->
+      <div class="hidden items-center gap-7 md:flex">
         <a
           href="index.html"
-          class="text-stone-700 hover:text-amber-700"
+          class="text-stone-700 hover:text-amber-700 focus-visible:outline-2 focus-visible:outline-offset-4 dark:text-stone-200 dark:hover:text-amber-400"
         >
           Home
         </a>
@@ -213,91 +60,94 @@
         <a
           href="services.html"
           aria-current="page"
-          class="font-semibold text-amber-800"
+          class="font-semibold text-amber-800 dark:text-amber-400"
         >
           Services
         </a>
 
         <a
           href="gallery.html"
-          class="text-stone-700 hover:text-amber-700"
+          class="text-stone-700 hover:text-amber-700 focus-visible:outline-2 focus-visible:outline-offset-4 dark:text-stone-200 dark:hover:text-amber-400"
         >
           Gallery
         </a>
 
         <a
           href="contact.html"
-          class="text-stone-700 hover:text-amber-700"
+          class="text-stone-700 hover:text-amber-700 focus-visible:outline-2 focus-visible:outline-offset-4 dark:text-stone-200 dark:hover:text-amber-400"
         >
           Contact
         </a>
-
       </div>
 
-      <a
-        href="contact.html"
-        class="hidden rounded-full bg-amber-800 px-6 py-3 text-white transition hover:bg-amber-900 md:inline-block"
-      >
-        Book Appointment
-      </a>
+      <div class="flex items-center gap-3">
 
-      <!-- Mobile Menu Button -->
-      <button
-        id="menuButton"
-        type="button"
-        class="rounded-lg border border-amber-800 px-3 py-2 text-amber-900 focus:outline-none focus:ring-2 focus:ring-amber-700 md:hidden"
-        aria-label="Toggle navigation"
-        aria-controls="mobileMenu"
-        aria-expanded="false"
-      >
-        ☰
-      </button>
+        <!-- DARK MODE BUTTON -->
+        <button
+          id="themeToggle"
+          type="button"
+          class="flex h-11 w-11 items-center justify-center rounded-full border border-amber-500 bg-amber-50 text-amber-800 transition hover:bg-amber-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600 dark:bg-stone-800 dark:text-amber-300 dark:hover:bg-stone-700"
+          aria-label="Switch colour theme"
+          aria-pressed="false"
+          title="Switch colour theme"
+        >
+          <span id="themeIcon" class="text-2xl" aria-hidden="true">
+            ☀
+          </span>
+        </button>
 
+        <a
+          href="contact.html"
+          class="hidden rounded-full bg-amber-800 px-6 py-3 font-semibold text-white transition hover:bg-amber-900 focus-visible:outline-2 focus-visible:outline-offset-4 md:inline-block"
+        >
+          Book Appointment
+        </a>
+
+        <!-- MOBILE MENU BUTTON -->
+        <button
+          id="menuButton"
+          type="button"
+          class="rounded-lg border border-amber-700 px-3 py-2 text-amber-800 focus-visible:outline-2 focus-visible:outline-offset-2 dark:text-amber-300 md:hidden"
+          aria-label="Toggle navigation"
+          aria-controls="mobileMenu"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+      </div>
     </nav>
 
-    <!-- Mobile Navigation -->
+    <!-- MOBILE NAVIGATION -->
     <div
       id="mobileMenu"
-      class="hidden space-y-2 border-t border-stone-200 bg-white px-5 py-4 text-stone-900 md:hidden"
+      class="hidden space-y-3 border-t border-stone-200 bg-white px-5 py-5 text-stone-900 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-100 md:hidden"
     >
-
-      <a href="index.html" class="block hover:text-amber-700">
+      <a href="index.html" class="block hover:text-amber-700 dark:hover:text-amber-400">
         Home
       </a>
 
-      <a
-        href="services.html"
-        aria-current="page"
-        class="block font-semibold text-amber-800"
-      >
+      <a href="services.html" aria-current="page" class="block font-semibold text-amber-800 dark:text-amber-400">
         Services
       </a>
 
-      <a href="gallery.html" class="block hover:text-amber-700">
+      <a href="gallery.html" class="block hover:text-amber-700 dark:hover:text-amber-400">
         Gallery
       </a>
 
-      <a href="contact.html" class="block hover:text-amber-700">
+      <a href="contact.html" class="block hover:text-amber-700 dark:hover:text-amber-400">
         Contact
       </a>
 
-      <a
-        href="contact.html"
-        class="block font-semibold text-amber-800"
-      >
+      <a href="contact.html" class="block font-semibold text-amber-800 dark:text-amber-400">
         Book Appointment
       </a>
-
     </div>
   </header>
 
   <main>
 
     <!-- HERO SECTION -->
-    <section
-      class="bg-gradient-to-r from-stone-900 via-amber-950 to-stone-900 px-6 py-24 text-center text-white"
-    >
-
+    <section class="bg-gradient-to-r from-stone-900 via-amber-950 to-stone-900 px-6 py-20 text-center text-white md:py-24">
       <div class="mx-auto max-w-4xl">
 
         <p class="mb-5 text-sm uppercase tracking-[0.3em] text-amber-300">
@@ -308,248 +158,224 @@
           Our Luxury Services
         </h1>
 
-        <p
-          class="mx-auto max-w-2xl text-lg leading-relaxed text-stone-200 md:text-xl"
-        >
+        <p class="mx-auto max-w-2xl text-lg leading-relaxed text-stone-200 md:text-xl">
           Discover beauty treatments designed to help you relax,
           refresh and feel confident.
         </p>
 
         <a
           href="#our-services"
-          class="mt-9 inline-block rounded-full bg-amber-600 px-8 py-3 text-white transition hover:bg-amber-700"
+          class="mt-9 inline-block rounded-full bg-amber-600 px-8 py-3 font-semibold text-white transition hover:bg-amber-700 focus-visible:outline-2 focus-visible:outline-offset-4"
         >
           Explore Services
         </a>
-
       </div>
     </section>
 
-    <!-- SERVICES GRID -->
+    <!-- SERVICES SECTION -->
     <section
       id="our-services"
-      class="services-section px-5 py-20"
+      class="scroll-mt-24 bg-stone-50 px-5 py-20 dark:bg-stone-950"
+      aria-labelledby="services-heading"
     >
-
       <div class="mx-auto max-w-7xl">
 
         <div class="mb-14 text-center">
-
-          <p
-            class="mb-3 font-semibold uppercase tracking-widest text-amber-700"
-          >
+          <p class="mb-3 font-semibold uppercase tracking-widest text-amber-700 dark:text-amber-400">
             What We Offer
           </p>
 
-          <h2 class="text-3xl font-bold md:text-4xl">
+          <h2
+            id="services-heading"
+            class="text-3xl font-bold text-stone-900 md:text-4xl dark:text-white"
+          >
             Beauty & Wellness Treatments
           </h2>
 
-          <p
-            class="section-description mx-auto mt-4 max-w-2xl"
-          >
+          <p class="mx-auto mt-4 max-w-2xl text-stone-600 dark:text-stone-300">
             Choose from our range of professional salon and spa services.
           </p>
-
         </div>
 
         <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
 
-          <!-- Hair Styling -->
-          <article class="service-card rounded-2xl shadow-md">
-
+          <!-- HAIR STYLING -->
+          <article class="group flex min-w-0 flex-col overflow-hidden rounded-2xl bg-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-stone-800">
             <img
-              src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=80"
+              src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
               alt="Professional hair styling in a modern beauty salon"
               loading="lazy"
+              class="h-56 w-full object-cover sm:h-60"
             >
 
-            <div class="p-7">
-
-              <h3 class="mb-3 text-2xl font-bold">
+            <div class="flex flex-1 flex-col p-7">
+              <h3 class="mb-3 text-2xl font-bold text-stone-900 dark:text-white">
                 Hair Styling
               </h3>
 
-              <p class="service-description mb-5">
+              <p class="mb-5 text-stone-600 dark:text-stone-300">
                 Modern haircuts, blow-drying, styling and hair transformations.
               </p>
 
-              <p class="service-price mb-5 text-xl font-bold">
-                From ₹799
-              </p>
+              <div class="mt-auto">
+                <p class="mb-5 text-xl font-bold text-amber-800 dark:text-amber-300">
+                  From ₹799
+                </p>
 
-              <a
-                href="contact.html"
-                class="inline-block rounded-full bg-amber-800 px-6 py-3 text-white transition hover:bg-amber-900"
-              >
-                Book Now
-              </a>
-
+                <a href="contact.html" class="inline-block rounded-full bg-amber-800 px-6 py-3 font-semibold text-white transition hover:bg-amber-900 focus-visible:outline-2 focus-visible:outline-offset-4">
+                  Book Now
+                </a>
+              </div>
             </div>
           </article>
 
-          <!-- Facial & Skincare -->
-          <article class="service-card rounded-2xl shadow-md">
-
+          <!-- FACIAL & SKINCARE -->
+          <article class="group flex min-w-0 flex-col overflow-hidden rounded-2xl bg-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-stone-800">
             <img
-              src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=80"
+              src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
               alt="Relaxing facial skincare treatment"
               loading="lazy"
+              class="h-56 w-full object-cover sm:h-60"
             >
 
-            <div class="p-7">
-
-              <h3 class="mb-3 text-2xl font-bold">
-                Facial & Skincare
+            <div class="flex flex-1 flex-col p-7">
+              <h3 class="mb-3 text-2xl font-bold text-stone-900 dark:text-white">
+                Facial &amp; Skincare
               </h3>
 
-              <p class="service-description mb-5">
+              <p class="mb-5 text-stone-600 dark:text-stone-300">
                 Refresh your skin with cleansing, hydrating and glow-enhancing facials.
               </p>
 
-              <p class="service-price mb-5 text-xl font-bold">
-                From ₹1,299
-              </p>
+              <div class="mt-auto">
+                <p class="mb-5 text-xl font-bold text-amber-800 dark:text-amber-300">
+                  From ₹1,299
+                </p>
 
-              <a
-                href="contact.html"
-                class="inline-block rounded-full bg-amber-800 px-6 py-3 text-white transition hover:bg-amber-900"
-              >
-                Book Now
-              </a>
-
+                <a href="contact.html" class="inline-block rounded-full bg-amber-800 px-6 py-3 font-semibold text-white transition hover:bg-amber-900 focus-visible:outline-2 focus-visible:outline-offset-4">
+                  Book Now
+                </a>
+              </div>
             </div>
           </article>
 
-          <!-- Spa & Wellness -->
-          <article class="service-card rounded-2xl shadow-md">
-
+          <!-- SPA & WELLNESS -->
+          <article class="group flex min-w-0 flex-col overflow-hidden rounded-2xl bg-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-stone-800">
             <img
-              src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=900&q=80"
+              src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
               alt="Spa room prepared for a relaxing wellness treatment"
               loading="lazy"
+              class="h-56 w-full object-cover sm:h-60"
             >
 
-            <div class="p-7">
-
-              <h3 class="mb-3 text-2xl font-bold">
-                Spa & Wellness
+            <div class="flex flex-1 flex-col p-7">
+              <h3 class="mb-3 text-2xl font-bold text-stone-900 dark:text-white">
+                Spa &amp; Wellness
               </h3>
 
-              <p class="service-description mb-5">
+              <p class="mb-5 text-stone-600 dark:text-stone-300">
                 Relaxing spa experiences designed for comfort and rejuvenation.
               </p>
 
-              <p class="service-price mb-5 text-xl font-bold">
-                From ₹1,999
-              </p>
+              <div class="mt-auto">
+                <p class="mb-5 text-xl font-bold text-amber-800 dark:text-amber-300">
+                  From ₹1,999
+                </p>
 
-              <a
-                href="contact.html"
-                class="inline-block rounded-full bg-amber-800 px-6 py-3 text-white transition hover:bg-amber-900"
-              >
-                Book Now
-              </a>
-
+                <a href="contact.html" class="inline-block rounded-full bg-amber-800 px-6 py-3 font-semibold text-white transition hover:bg-amber-900 focus-visible:outline-2 focus-visible:outline-offset-4">
+                  Book Now
+                </a>
+              </div>
             </div>
           </article>
 
-          <!-- Bridal Makeup -->
-          <article class="service-card rounded-2xl shadow-md">
-
+          <!-- BRIDAL MAKEUP -->
+          <article class="group flex min-w-0 flex-col overflow-hidden rounded-2xl bg-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-stone-800">
             <img
-              src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=900&q=80"
+              src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
               alt="Makeup brushes and professional beauty products"
               loading="lazy"
+              class="h-56 w-full object-cover sm:h-60"
             >
 
-            <div class="p-7">
-
-              <h3 class="mb-3 text-2xl font-bold">
+            <div class="flex flex-1 flex-col p-7">
+              <h3 class="mb-3 text-2xl font-bold text-stone-900 dark:text-white">
                 Bridal Makeup
               </h3>
 
-              <p class="service-description mb-5">
+              <p class="mb-5 text-stone-600 dark:text-stone-300">
                 Elegant bridal makeup designed for your special day.
               </p>
 
-              <p class="service-price mb-5 text-xl font-bold">
-                From ₹7,999
-              </p>
+              <div class="mt-auto">
+                <p class="mb-5 text-xl font-bold text-amber-800 dark:text-amber-300">
+                  From ₹7,999
+                </p>
 
-              <a
-                href="contact.html"
-                class="inline-block rounded-full bg-amber-800 px-6 py-3 text-white transition hover:bg-amber-900"
-              >
-                Book Now
-              </a>
-
+                <a href="contact.html" class="inline-block rounded-full bg-amber-800 px-6 py-3 font-semibold text-white transition hover:bg-amber-900 focus-visible:outline-2 focus-visible:outline-offset-4">
+                  Book Now
+                </a>
+              </div>
             </div>
           </article>
 
-          <!-- Manicure & Pedicure -->
-          <article class="service-card rounded-2xl shadow-md">
-
+          <!-- MANICURE & PEDICURE -->
+          <article class="group flex min-w-0 flex-col overflow-hidden rounded-2xl bg-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-stone-800">
             <img
-              src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=900&q=80"
+              src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
               alt="Neatly manicured nails with elegant nail polish"
               loading="lazy"
+              class="h-56 w-full object-cover sm:h-60"
             >
 
-            <div class="p-7">
-
-              <h3 class="mb-3 text-2xl font-bold">
-                Manicure & Pedicure
+            <div class="flex flex-1 flex-col p-7">
+              <h3 class="mb-3 text-2xl font-bold text-stone-900 dark:text-white">
+                Manicure &amp; Pedicure
               </h3>
 
-              <p class="service-description mb-5">
+              <p class="mb-5 text-stone-600 dark:text-stone-300">
                 Nail care and pampering treatments for beautifully groomed hands and feet.
               </p>
 
-              <p class="service-price mb-5 text-xl font-bold">
-                From ₹699
-              </p>
+              <div class="mt-auto">
+                <p class="mb-5 text-xl font-bold text-amber-800 dark:text-amber-300">
+                  From ₹699
+                </p>
 
-              <a
-                href="contact.html"
-                class="inline-block rounded-full bg-amber-800 px-6 py-3 text-white transition hover:bg-amber-900"
-              >
-                Book Now
-              </a>
-
+                <a href="contact.html" class="inline-block rounded-full bg-amber-800 px-6 py-3 font-semibold text-white transition hover:bg-amber-900 focus-visible:outline-2 focus-visible:outline-offset-4">
+                  Book Now
+                </a>
+              </div>
             </div>
           </article>
 
-          <!-- Hair Spa -->
-          <article class="service-card rounded-2xl shadow-md">
-
+          <!-- HAIR SPA -->
+          <article class="group flex min-w-0 flex-col overflow-hidden rounded-2xl bg-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-stone-800">
             <img
-              src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=80"
+              src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
               alt="Salon professional working on a client's hair"
               loading="lazy"
+              class="h-56 w-full object-cover sm:h-60"
             >
 
-            <div class="p-7">
-
-              <h3 class="mb-3 text-2xl font-bold">
-                Hair Spa & Treatment
+            <div class="flex flex-1 flex-col p-7">
+              <h3 class="mb-3 text-2xl font-bold text-stone-900 dark:text-white">
+                Hair Spa &amp; Treatment
               </h3>
 
-              <p class="service-description mb-5">
+              <p class="mb-5 text-stone-600 dark:text-stone-300">
                 Nourishing hair treatments to improve softness and shine.
               </p>
 
-              <p class="service-price mb-5 text-xl font-bold">
-                From ₹1,499
-              </p>
+              <div class="mt-auto">
+                <p class="mb-5 text-xl font-bold text-amber-800 dark:text-amber-300">
+                  From ₹1,499
+                </p>
 
-              <a
-                href="contact.html"
-                class="inline-block rounded-full bg-amber-800 px-6 py-3 text-white transition hover:bg-amber-900"
-              >
-                Book Now
-              </a>
-
+                <a href="contact.html" class="inline-block rounded-full bg-amber-800 px-6 py-3 font-semibold text-white transition hover:bg-amber-900 focus-visible:outline-2 focus-visible:outline-offset-4">
+                  Book Now
+                </a>
+              </div>
             </div>
           </article>
 
@@ -558,194 +384,152 @@
     </section>
 
     <!-- PRICING TABLE -->
-    <section class="pricing-section px-5 py-20">
-
+    <section
+      class="bg-amber-50 px-5 py-20 dark:bg-stone-900"
+      aria-labelledby="pricing-heading"
+    >
       <div class="mx-auto max-w-5xl">
 
         <div class="mb-12 text-center">
-
-          <p
-            class="mb-3 font-semibold uppercase tracking-widest text-amber-700"
-          >
+          <p class="mb-3 font-semibold uppercase tracking-widest text-amber-700 dark:text-amber-400">
             Transparent Pricing
           </p>
 
-          <h2 class="text-3xl font-bold md:text-4xl">
+          <h2
+            id="pricing-heading"
+            class="text-3xl font-bold text-stone-900 md:text-4xl dark:text-white"
+          >
             Our Pricing Guide
           </h2>
 
-          <p class="section-description mt-4">
+          <p class="mt-4 text-stone-600 dark:text-stone-300">
             Indicative starting prices for our salon services.
           </p>
-
         </div>
 
-        <div class="overflow-x-auto rounded-2xl bg-white shadow-md">
-
-          <table class="pricing-table w-full text-left">
+        <div class="overflow-x-auto rounded-2xl bg-white shadow-md dark:bg-stone-800">
+          <table class="w-full min-w-[480px] text-left text-stone-900 dark:text-stone-100">
 
             <caption class="sr-only">
               Aura Luxe Salon and Spa service starting prices in Indian rupees
             </caption>
 
-            <thead>
+            <thead class="bg-amber-900 text-white dark:bg-amber-950">
               <tr>
-                <th scope="col" class="px-5 py-5">
-                  Service
-                </th>
-                <th scope="col" class="px-5 py-5">
-                  Duration
-                </th>
-                <th scope="col" class="px-5 py-5">
-                  Starting Price
-                </th>
+                <th scope="col" class="px-5 py-5">Service</th>
+                <th scope="col" class="px-5 py-5">Duration</th>
+                <th scope="col" class="px-5 py-5">Starting Price</th>
               </tr>
             </thead>
 
-            <tbody class="divide-y divide-stone-200">
-
-              <tr>
-                <th scope="row" class="px-5 py-4 font-medium">
-                  Hair Styling
-                </th>
+            <tbody class="divide-y divide-stone-200 dark:divide-stone-700">
+              <tr class="bg-white dark:bg-stone-800">
+                <th scope="row" class="px-5 py-4 font-medium">Hair Styling</th>
                 <td class="px-5 py-4">45 min</td>
                 <td class="px-5 py-4 font-semibold">₹799</td>
               </tr>
 
-              <tr>
-                <th scope="row" class="px-5 py-4 font-medium">
-                  Facial & Skincare
-                </th>
+              <tr class="bg-stone-50 dark:bg-stone-700">
+                <th scope="row" class="px-5 py-4 font-medium">Facial &amp; Skincare</th>
                 <td class="px-5 py-4">60 min</td>
                 <td class="px-5 py-4 font-semibold">₹1,299</td>
               </tr>
 
-              <tr>
-                <th scope="row" class="px-5 py-4 font-medium">
-                  Spa & Wellness
-                </th>
+              <tr class="bg-white dark:bg-stone-800">
+                <th scope="row" class="px-5 py-4 font-medium">Spa &amp; Wellness</th>
                 <td class="px-5 py-4">90 min</td>
                 <td class="px-5 py-4 font-semibold">₹1,999</td>
               </tr>
 
-              <tr>
-                <th scope="row" class="px-5 py-4 font-medium">
-                  Bridal Makeup
-                </th>
+              <tr class="bg-stone-50 dark:bg-stone-700">
+                <th scope="row" class="px-5 py-4 font-medium">Bridal Makeup</th>
                 <td class="px-5 py-4">180 min</td>
                 <td class="px-5 py-4 font-semibold">₹7,999</td>
               </tr>
 
-              <tr>
-                <th scope="row" class="px-5 py-4 font-medium">
-                  Manicure & Pedicure
-                </th>
+              <tr class="bg-white dark:bg-stone-800">
+                <th scope="row" class="px-5 py-4 font-medium">Manicure &amp; Pedicure</th>
                 <td class="px-5 py-4">45 min</td>
                 <td class="px-5 py-4 font-semibold">₹699</td>
               </tr>
 
-              <tr>
-                <th scope="row" class="px-5 py-4 font-medium">
-                  Hair Spa & Treatment
-                </th>
+              <tr class="bg-stone-50 dark:bg-stone-700">
+                <th scope="row" class="px-5 py-4 font-medium">Hair Spa &amp; Treatment</th>
                 <td class="px-5 py-4">60 min</td>
                 <td class="px-5 py-4 font-semibold">₹1,499</td>
               </tr>
-
             </tbody>
           </table>
         </div>
 
-        <p class="mt-5 text-center text-sm text-stone-600">
+        <p class="mt-5 text-center text-sm text-stone-600 dark:text-stone-300">
           Demo pricing only. Final prices may vary depending on the treatment.
         </p>
-
       </div>
     </section>
 
     <!-- WHY CHOOSE US -->
-    <section class="services-benefits px-5 py-20">
-
+    <section
+      class="bg-[#faf6ef] px-5 py-20 dark:bg-stone-950"
+      aria-labelledby="benefits-heading"
+    >
       <div class="mx-auto max-w-6xl">
 
         <div class="mb-12 text-center">
-
-          <h2 class="text-3xl font-bold md:text-4xl">
+          <h2
+            id="benefits-heading"
+            class="text-3xl font-bold text-stone-900 md:text-4xl dark:text-white"
+          >
             Why Choose Aura Luxe?
           </h2>
 
-          <p class="section-description mt-4">
+          <p class="mt-4 text-stone-600 dark:text-stone-300">
             A welcoming space where beauty meets relaxation.
           </p>
-
         </div>
 
         <div class="flex flex-col gap-8 md:flex-row">
 
-          <!-- Professional Care -->
-          <article
-            class="benefit-card flex-1 rounded-2xl p-8 text-center shadow-md"
-          >
-
-            <div
-              class="benefit-icon mb-4 text-5xl"
-              aria-hidden="true"
-            >
+          <article class="min-w-0 flex-1 rounded-2xl bg-white p-8 text-center shadow-md transition hover:-translate-y-1 hover:shadow-xl dark:bg-stone-800">
+            <div class="mb-4 text-5xl text-amber-700 dark:text-amber-300" aria-hidden="true">
               ✦
             </div>
 
-            <h3 class="mb-3 text-xl font-bold">
+            <h3 class="mb-3 text-xl font-bold text-stone-900 dark:text-white">
               Professional Care
             </h3>
 
-            <p>
+            <p class="text-stone-600 dark:text-stone-300">
               Thoughtful beauty services tailored to your preferences.
             </p>
-
           </article>
 
-          <!-- Relaxing Experience -->
-          <article
-            class="benefit-card flex-1 rounded-2xl p-8 text-center shadow-md"
-          >
-
-            <div
-              class="benefit-icon mb-4 text-5xl"
-              aria-hidden="true"
-            >
+          <article class="min-w-0 flex-1 rounded-2xl bg-white p-8 text-center shadow-md transition hover:-translate-y-1 hover:shadow-xl dark:bg-stone-800">
+            <div class="mb-4 text-5xl text-amber-700 dark:text-amber-300" aria-hidden="true">
               ♡
             </div>
 
-            <h3 class="mb-3 text-xl font-bold">
+            <h3 class="mb-3 text-xl font-bold text-stone-900 dark:text-white">
               Relaxing Experience
             </h3>
 
-            <p>
+            <p class="text-stone-600 dark:text-stone-300">
               Enjoy a peaceful environment designed for your comfort.
             </p>
-
           </article>
 
-          <!-- Quality Treatments -->
-          <article
-            class="benefit-card flex-1 rounded-2xl p-8 text-center shadow-md"
-          >
-
-            <div
-              class="benefit-icon mb-4 text-5xl"
-              aria-hidden="true"
-            >
+          <article class="min-w-0 flex-1 rounded-2xl bg-white p-8 text-center shadow-md transition hover:-translate-y-1 hover:shadow-xl dark:bg-stone-800">
+            <div class="mb-4 text-5xl text-amber-700 dark:text-amber-300" aria-hidden="true">
               ★
             </div>
 
-            <h3 class="mb-3 text-xl font-bold">
+            <h3 class="mb-3 text-xl font-bold text-stone-900 dark:text-white">
               Quality Treatments
             </h3>
 
-            <p>
+            <p class="text-stone-600 dark:text-stone-300">
               Beauty and wellness treatments with attention to detail.
             </p>
-
           </article>
 
         </div>
@@ -753,25 +537,22 @@
     </section>
 
     <!-- CALL TO ACTION -->
-    <section
-      class="bg-amber-900 px-5 py-20 text-center text-white"
-    >
+    <section class="bg-amber-900 px-5 py-20 text-center text-white dark:bg-stone-900">
 
       <h2 class="mb-5 text-3xl font-bold md:text-4xl">
         Ready to Feel Beautiful?
       </h2>
 
-      <p class="mx-auto mb-8 max-w-xl text-amber-100">
+      <p class="mx-auto mb-8 max-w-xl text-amber-100 dark:text-stone-200">
         Explore your favourite treatments and request your next salon appointment.
       </p>
 
       <a
         href="contact.html"
-        class="inline-block rounded-full bg-white px-9 py-4 font-semibold text-amber-900 transition hover:bg-amber-100"
+        class="inline-block rounded-full bg-white px-9 py-4 font-semibold text-amber-900 transition hover:bg-amber-100 focus-visible:outline-2 focus-visible:outline-offset-4"
       >
         Request an Appointment
       </a>
-
     </section>
 
   </main>
@@ -779,53 +560,34 @@
   <!-- FOOTER -->
   <footer class="bg-stone-950 px-5 py-12 text-stone-300">
 
-    <div
-      class="mx-auto flex max-w-7xl flex-col justify-between gap-8 md:flex-row"
-    >
+    <div class="mx-auto flex max-w-7xl flex-col justify-between gap-8 md:flex-row">
 
       <div>
-
         <h2 class="mb-3 text-2xl font-bold text-amber-400">
           AURA LUXE
         </h2>
 
-        <p>Salon & Spa | Jaipur, Rajasthan</p>
+        <p>Salon &amp; Spa | Jaipur, Rajasthan</p>
 
         <p class="mt-2 text-sm">
           Fictional business website created for a portfolio assignment.
         </p>
-
       </div>
 
       <div>
-
         <h3 class="mb-3 font-semibold text-white">
           Quick Links
         </h3>
 
         <div class="flex flex-col gap-2">
-
-          <a href="index.html" class="hover:text-amber-400">
-            Home
-          </a>
-
-          <a href="services.html" class="hover:text-amber-400">
-            Services
-          </a>
-
-          <a href="gallery.html" class="hover:text-amber-400">
-            Gallery
-          </a>
-
-          <a href="contact.html" class="hover:text-amber-400">
-            Contact
-          </a>
-
+          <a href="index.html" class="hover:text-amber-400">Home</a>
+          <a href="services.html" class="hover:text-amber-400">Services</a>
+          <a href="gallery.html" class="hover:text-amber-400">Gallery</a>
+          <a href="contact.html" class="hover:text-amber-400">Contact</a>
         </div>
       </div>
 
       <div>
-
         <h3 class="mb-3 font-semibold text-white">
           Opening Hours
         </h3>
@@ -836,40 +598,68 @@
         <p class="mt-2 text-xs text-stone-400">
           Illustrative hours
         </p>
-
       </div>
     </div>
 
-    <div
-      class="mx-auto mt-10 max-w-7xl border-t border-stone-700 pt-6 text-center text-sm"
-    >
-      © 2026 Aura Luxe Salon & Spa. Demo website.
+    <div class="mx-auto mt-10 max-w-7xl border-t border-stone-700 pt-6 text-center text-sm">
+      &copy; 2026 Aura Luxe Salon &amp; Spa. Demo website.
     </div>
-
   </footer>
 
-  <!-- MOBILE MENU SCRIPT -->
   <script>
+    // MOBILE MENU
     const menuButton = document.getElementById("menuButton");
     const mobileMenu = document.getElementById("mobileMenu");
 
     menuButton.addEventListener("click", () => {
-      const isOpen = !mobileMenu.classList.contains("hidden");
+      const isOpen = menuButton.getAttribute("aria-expanded") === "true";
 
-      mobileMenu.classList.toggle("hidden");
-      menuButton.setAttribute(
-        "aria-expanded",
-        String(!isOpen)
-      );
+      mobileMenu.classList.toggle("hidden", isOpen);
+      menuButton.setAttribute("aria-expanded", String(!isOpen));
     });
 
-    // Close mobile menu after selecting a link
     mobileMenu.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         mobileMenu.classList.add("hidden");
         menuButton.setAttribute("aria-expanded", "false");
       });
     });
+
+    // DARK MODE
+    const themeToggle = document.getElementById("themeToggle");
+    const themeIcon = document.getElementById("themeIcon");
+
+    function updateThemeButton() {
+      const isDark = document.documentElement.classList.contains("dark");
+
+      // Show the action the button will perform.
+      themeIcon.textContent = isDark ? "☀" : "☾";
+
+      themeToggle.setAttribute(
+        "aria-label",
+        isDark ? "Switch to light mode" : "Switch to dark mode"
+      );
+
+      themeToggle.setAttribute("aria-pressed", String(isDark));
+
+      themeToggle.title = isDark
+        ? "Switch to light mode"
+        : "Switch to dark mode";
+    }
+
+    themeToggle.addEventListener("click", () => {
+      const isDark = document.documentElement.classList.toggle("dark");
+
+      try {
+        localStorage.setItem("aura-theme", isDark ? "dark" : "light");
+      } catch (error) {
+        // The toggle still works if browser storage is unavailable.
+      }
+
+      updateThemeButton();
+    });
+
+    updateThemeButton();
   </script>
 
 </body>

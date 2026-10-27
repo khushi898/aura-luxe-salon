@@ -11,7 +11,34 @@
 
   <title>Contact Us | Aura Luxe Salon & Spa</title>
 
-  <!-- Tailwind CSS -->
+  <!-- Apply saved theme before rendering -->
+  <script>
+    (function () {
+      try {
+        const savedTheme =
+          localStorage.getItem("aura-luxe-theme") ||
+          localStorage.getItem("aura-theme");
+
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+
+        document.documentElement.classList.toggle(
+          "dark",
+          savedTheme === "dark" ||
+          (!savedTheme && prefersDark)
+        );
+      } catch (error) {
+        document.documentElement.classList.toggle(
+          "dark",
+          window.matchMedia(
+            "(prefers-color-scheme: dark)"
+          ).matches
+        );
+      }
+    })();
+  </script>
+
   <link rel="stylesheet" href="./src/output.css">
 
   <style>
@@ -30,16 +57,34 @@
       overflow-x: hidden;
       background-color: #fffbeb;
       color: #1c1917;
+      transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
     }
 
-    /* Header */
+    .dark body {
+      background-color: #0c0a09;
+      color: #f5f5f4;
+    }
+
+    /* HEADER */
     .salon-header {
       background-color: #ffffff;
       color: #1c1917;
     }
 
+    .dark .salon-header {
+      background-color: #1c1917;
+      color: #f5f5f4;
+      border-color: #44403c;
+    }
+
     .brand {
       color: #92400e;
+    }
+
+    .dark .brand {
+      color: #fbbf24;
     }
 
     .desktop-nav a {
@@ -52,16 +97,53 @@
       color: #92400e;
     }
 
+    .dark .desktop-nav a {
+      color: #e7e5e4;
+    }
+
+    .dark .desktop-nav a:hover,
+    .dark .desktop-nav a[aria-current="page"] {
+      color: #fbbf24;
+    }
+
     #mobileMenu {
       background-color: #ffffff;
       color: #1c1917;
     }
 
-    /* Form and information cards */
+    .dark #mobileMenu {
+      background-color: #1c1917;
+      color: #f5f5f4;
+      border-color: #44403c;
+    }
+
+    #mobileMenu a {
+      color: #292524;
+    }
+
+    #mobileMenu a[aria-current="page"] {
+      color: #92400e;
+    }
+
+    .dark #mobileMenu a {
+      color: #f5f5f4;
+    }
+
+    .dark #mobileMenu a[aria-current="page"],
+    .dark #mobileMenu a:hover {
+      color: #fbbf24;
+    }
+
+    /* FORM AND INFORMATION CARDS */
     .contact-card {
       background-color: #ffffff;
       color: #1c1917;
       min-width: 0;
+    }
+
+    .dark .contact-card {
+      background-color: #292524;
+      color: #f5f5f4;
     }
 
     .contact-card h1,
@@ -69,8 +151,17 @@
       color: #1c1917;
     }
 
+    .dark .contact-card h1,
+    .dark .contact-card h2 {
+      color: #ffffff;
+    }
+
     .contact-card label {
       color: #292524;
+    }
+
+    .dark .contact-card label {
+      color: #f5f5f4;
     }
 
     .contact-card input,
@@ -89,10 +180,24 @@
       color-scheme: light;
     }
 
+    .dark .contact-card input,
+    .dark .contact-card select,
+    .dark .contact-card textarea {
+      background-color: #1c1917;
+      color: #ffffff;
+      border-color: #78716c;
+      color-scheme: dark;
+    }
+
     .contact-card input::placeholder,
     .contact-card textarea::placeholder {
       color: #78716c;
       opacity: 1;
+    }
+
+    .dark .contact-card input::placeholder,
+    .dark .contact-card textarea::placeholder {
+      color: #a8a29e;
     }
 
     .contact-card input:focus,
@@ -103,6 +208,13 @@
       border-color: #d97706;
     }
 
+    .dark .contact-card input:focus,
+    .dark .contact-card select:focus,
+    .dark .contact-card textarea:focus {
+      outline-color: #fbbf24;
+      border-color: #fbbf24;
+    }
+
     .contact-card textarea {
       resize: vertical;
     }
@@ -111,7 +223,27 @@
       color: #57534e;
     }
 
-    /* Submit button */
+    .dark .contact-card .form-description {
+      color: #d6d3d1;
+    }
+
+    .visit-details {
+      color: #44403c;
+    }
+
+    .dark .visit-details {
+      color: #e7e5e4;
+    }
+
+    .visit-note {
+      color: #78716c;
+    }
+
+    .dark .visit-note {
+      color: #d6d3d1;
+    }
+
+    /* SUBMIT BUTTON */
     .submit-btn {
       display: block;
       width: 100%;
@@ -129,12 +261,21 @@
       background-color: #92400e;
     }
 
+    .dark .submit-btn {
+      background-color: #b45309;
+      color: #ffffff;
+    }
+
+    .dark .submit-btn:hover {
+      background-color: #d97706;
+    }
+
     .submit-btn:focus-visible {
       outline: 3px solid #f59e0b;
       outline-offset: 3px;
     }
 
-    /* Success message */
+    /* FORM FEEDBACK */
     .success-message {
       background-color: #ecfdf5;
       color: #065f46;
@@ -145,7 +286,32 @@
       text-align: center;
     }
 
-    /* Map */
+    .dark .success-message {
+      background-color: #064e3b;
+      color: #ecfdf5;
+      border-color: #34d399;
+    }
+
+    .dark .success-message h2 {
+      color: #ecfdf5;
+    }
+
+    .form-error {
+      background-color: #fef2f2;
+      color: #991b1b;
+      border: 1px solid #fca5a5;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .dark .form-error {
+      background-color: #450a0a;
+      color: #fecaca;
+      border-color: #ef4444;
+    }
+
+    /* MAP */
     .salon-map {
       display: block;
       width: 100%;
@@ -153,7 +319,7 @@
       border: 0;
     }
 
-    /* Mobile */
+    /* MOBILE */
     @media (max-width: 640px) {
       .contact-card {
         padding: 24px 18px;
@@ -170,7 +336,8 @@
       }
 
       .submit-btn,
-      .desktop-nav a {
+      .desktop-nav a,
+      body {
         transition: none;
       }
     }
@@ -180,7 +347,7 @@
 <body>
 
   <!-- HEADER -->
-  <header class="salon-header sticky top-0 z-50 shadow-sm">
+  <header class="salon-header sticky top-0 z-50 border-b border-stone-200 shadow-sm">
 
     <nav
       class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-5"
@@ -189,12 +356,12 @@
 
       <a
         href="index.html"
-        class="brand text-xl font-bold tracking-wide sm:text-2xl"
+        class="brand shrink-0 text-xl font-bold tracking-wide sm:text-2xl"
       >
         AURA LUXE
       </a>
 
-      <!-- Desktop Navigation -->
+      <!-- DESKTOP NAVIGATION -->
       <div class="desktop-nav hidden items-center gap-8 md:flex">
 
         <a href="index.html">
@@ -219,29 +386,50 @@
 
       </div>
 
-      <!-- Desktop Appointment Button -->
-      <a
-        href="#appointment"
-        class="hidden rounded-full bg-amber-800 px-6 py-3 text-white transition hover:bg-amber-900 md:inline-block"
-      >
-        Book Appointment
-      </a>
+      <div class="flex items-center gap-3">
 
-      <!-- Mobile Menu Button -->
-      <button
-        id="menuButton"
-        type="button"
-        class="rounded-lg border border-stone-300 px-4 py-2 text-stone-900 focus:outline-none focus:ring-2 focus:ring-amber-600 md:hidden"
-        aria-controls="mobileMenu"
-        aria-expanded="false"
-        aria-label="Toggle navigation menu"
-      >
-        Menu
-      </button>
+        <!-- DARK MODE TOGGLE -->
+        <button
+          id="themeToggle"
+          type="button"
+          class="flex h-11 w-11 items-center justify-center rounded-full border border-amber-500 bg-amber-50 text-amber-800 transition hover:bg-amber-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600 dark:bg-stone-800 dark:text-amber-300 dark:hover:bg-stone-700"
+          aria-label="Switch colour theme"
+          aria-pressed="false"
+          title="Switch colour theme"
+        >
+          <span
+            id="themeIcon"
+            class="text-2xl"
+            aria-hidden="true"
+          >
+            ☾
+          </span>
+        </button>
 
+        <!-- DESKTOP APPOINTMENT BUTTON -->
+        <a
+          href="#appointment"
+          class="hidden rounded-full bg-amber-800 px-6 py-3 font-semibold text-white transition hover:bg-amber-900 md:inline-block"
+        >
+          Book Appointment
+        </a>
+
+        <!-- MOBILE MENU BUTTON -->
+        <button
+          id="menuButton"
+          type="button"
+          class="rounded-lg border border-stone-300 px-3 py-2 text-stone-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600 dark:border-stone-600 dark:text-white md:hidden"
+          aria-controls="mobileMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation menu"
+        >
+          ☰
+        </button>
+
+      </div>
     </nav>
 
-    <!-- Mobile Navigation -->
+    <!-- MOBILE NAVIGATION -->
     <div
       id="mobileMenu"
       class="hidden border-t border-stone-200 px-5 pb-5 pt-4 md:hidden"
@@ -249,29 +437,29 @@
 
       <div class="flex flex-col gap-4">
 
-        <a href="index.html" class="text-stone-800">
+        <a href="index.html">
           Home
         </a>
 
-        <a href="services.html" class="text-stone-800">
+        <a href="services.html">
           Services
         </a>
 
-        <a href="gallery.html" class="text-stone-800">
+        <a href="gallery.html">
           Gallery
         </a>
 
         <a
           href="contact.html"
           aria-current="page"
-          class="font-semibold text-amber-800"
+          class="font-semibold"
         >
           Contact
         </a>
 
         <a
           href="#appointment"
-          class="font-semibold text-amber-800"
+          class="font-semibold text-amber-800 dark:text-amber-400"
         >
           Book Appointment
         </a>
@@ -302,9 +490,8 @@
 
       <form id="appointmentForm" class="space-y-5">
 
-        <!-- Full Name -->
+        <!-- FULL NAME -->
         <div>
-
           <label
             for="fullName"
             class="mb-2 block font-medium"
@@ -321,12 +508,10 @@
             minlength="2"
             required
           >
-
         </div>
 
-        <!-- Email -->
+        <!-- EMAIL -->
         <div>
-
           <label
             for="email"
             class="mb-2 block font-medium"
@@ -342,12 +527,10 @@
             autocomplete="email"
             required
           >
-
         </div>
 
-        <!-- Phone -->
+        <!-- PHONE -->
         <div>
-
           <label
             for="phone"
             class="mb-2 block font-medium"
@@ -366,12 +549,10 @@
             maxlength="20"
             required
           >
-
         </div>
 
-        <!-- Service -->
+        <!-- SERVICE -->
         <div>
-
           <label
             for="service"
             class="mb-2 block font-medium"
@@ -384,7 +565,6 @@
             name="service"
             required
           >
-
             <option value="">
               Choose a service
             </option>
@@ -412,14 +592,11 @@
             <option value="hair-spa">
               Hair Spa &amp; Treatment
             </option>
-
           </select>
-
         </div>
 
-        <!-- Appointment Date -->
+        <!-- APPOINTMENT DATE -->
         <div>
-
           <label
             for="appointment-date"
             class="mb-2 block font-medium"
@@ -433,12 +610,10 @@
             name="date"
             required
           >
-
         </div>
 
-        <!-- Appointment Time -->
+        <!-- APPOINTMENT TIME -->
         <div>
-
           <label
             for="appointment-time"
             class="mb-2 block font-medium"
@@ -458,12 +633,10 @@
             Monday–Saturday: 10 AM–8 PM.
             Sunday: 11 AM–6 PM.
           </p>
-
         </div>
 
-        <!-- Special Requests -->
+        <!-- SPECIAL REQUESTS -->
         <div>
-
           <label
             for="special-requests"
             class="mb-2 block font-medium"
@@ -477,10 +650,9 @@
             rows="4"
             placeholder="Tell us about any special requests..."
           ></textarea>
-
         </div>
 
-        <!-- Submit -->
+        <!-- SUBMIT BUTTON -->
         <button
           type="submit"
           class="submit-btn"
@@ -492,13 +664,14 @@
           Demo website: no real appointment will be booked.
         </p>
 
-        <!-- Form Feedback -->
+        <!-- ERROR MESSAGE -->
         <p
           id="formError"
-          class="hidden rounded-xl border border-red-300 bg-red-50 p-4 text-center text-red-800"
+          class="form-error hidden"
           role="alert"
         ></p>
 
+        <!-- SUCCESS MESSAGE -->
         <div
           id="successMessage"
           class="success-message hidden"
@@ -533,7 +706,7 @@
         Visit Aura Luxe
       </h2>
 
-      <div class="space-y-4 text-stone-700">
+      <div class="visit-details space-y-4">
 
         <p>
           <strong>Location:</strong>
@@ -550,7 +723,7 @@
           11:00 AM – 6:00 PM
         </p>
 
-        <p class="text-sm text-stone-500">
+        <p class="visit-note text-sm">
           Fictional salon location and illustrative
           opening hours for this project.
         </p>
@@ -559,7 +732,6 @@
 
       <!-- MAP -->
       <div class="mt-6 overflow-hidden rounded-2xl">
-
         <iframe
           title="Map showing Jaipur, Rajasthan, India"
           src="https://www.google.com/maps?q=Jaipur,Rajasthan,India&amp;output=embed"
@@ -567,14 +739,13 @@
           referrerpolicy="no-referrer-when-downgrade"
           class="salon-map"
         ></iframe>
-
       </div>
-    </section>
 
+    </section>
   </main>
 
   <!-- FOOTER -->
-  <footer class="bg-stone-900 px-4 py-8 text-center text-white">
+  <footer class="bg-stone-900 px-4 py-8 text-center text-white dark:bg-stone-950">
 
     <p>
       &copy; 2026 Aura Luxe Salon &amp; Spa.
@@ -605,12 +776,62 @@
       mobileMenu.classList.toggle("hidden", isOpen);
     });
 
-    mobileMenu.querySelectorAll("a").forEach(link => {
+    mobileMenu.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         mobileMenu.classList.add("hidden");
         menuButton.setAttribute("aria-expanded", "false");
       });
     });
+
+    // DARK MODE
+    const themeToggle = document.getElementById("themeToggle");
+    const themeIcon = document.getElementById("themeIcon");
+
+    function updateThemeButton() {
+      const isDark =
+        document.documentElement.classList.contains("dark");
+
+      themeIcon.textContent = isDark ? "☀" : "☾";
+
+      themeToggle.setAttribute(
+        "aria-label",
+        isDark ? "Switch to light mode" : "Switch to dark mode"
+      );
+
+      themeToggle.setAttribute(
+        "aria-pressed",
+        String(isDark)
+      );
+
+      themeToggle.title = isDark
+        ? "Switch to light mode"
+        : "Switch to dark mode";
+    }
+
+    themeToggle.addEventListener("click", () => {
+      const isDark =
+        document.documentElement.classList.toggle("dark");
+
+      try {
+        const selectedTheme = isDark ? "dark" : "light";
+
+        localStorage.setItem(
+          "aura-luxe-theme",
+          selectedTheme
+        );
+
+        localStorage.setItem(
+          "aura-theme",
+          selectedTheme
+        );
+      } catch (error) {
+        // Theme switching still works without storage.
+      }
+
+      updateThemeButton();
+    });
+
+    updateThemeButton();
 
     // APPOINTMENT FORM
     const appointmentForm =
@@ -628,7 +849,7 @@
     const successMessage =
       document.getElementById("successMessage");
 
-    // Use Jaipur's calendar date, not the visitor's timezone.
+    // Use Jaipur's calendar date.
     function getJaipurDate() {
       const parts = new Intl.DateTimeFormat("en-GB", {
         timeZone: "Asia/Kolkata",
@@ -639,7 +860,7 @@
 
       const values = {};
 
-      parts.forEach(part => {
+      parts.forEach((part) => {
         values[part.type] = part.value;
       });
 
@@ -656,34 +877,50 @@
 
     updateMinDate();
 
-    // Clear messages when trying again
+    // CLEAR FEEDBACK
     function clearMessages() {
       formError.classList.add("hidden");
       formError.textContent = "";
       successMessage.classList.add("hidden");
     }
 
-    appointmentForm.addEventListener("input", clearMessages);
-    appointmentForm.addEventListener("change", clearMessages);
+    appointmentForm.addEventListener(
+      "input",
+      clearMessages
+    );
+
+    appointmentForm.addEventListener(
+      "change",
+      clearMessages
+    );
 
     function showError(message) {
       formError.textContent = message;
       formError.classList.remove("hidden");
       successMessage.classList.add("hidden");
+
       formError.scrollIntoView({
-        behavior: "smooth",
+        behavior: window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches ? "auto" : "smooth",
         block: "center"
       });
     }
 
     // FORM SUBMISSION
-    appointmentForm.addEventListener("submit", event => {
+    appointmentForm.addEventListener("submit", (event) => {
       event.preventDefault();
+
       clearMessages();
       updateMinDate();
 
       const selectedDate = dateInput.value;
       const selectedTime = timeInput.value;
+
+      if (!appointmentForm.checkValidity()) {
+        appointmentForm.reportValidity();
+        return;
+      }
 
       if (selectedDate < dateInput.min) {
         showError("Please select today or a future date.");
@@ -691,12 +928,14 @@
         return;
       }
 
-      // Calculate weekday using calendar date
+      // Calculate weekday from calendar date.
       const [year, month, day] =
         selectedDate.split("-").map(Number);
 
       const selectedDay =
-        new Date(Date.UTC(year, month - 1, day)).getUTCDay();
+        new Date(
+          Date.UTC(year, month - 1, day)
+        ).getUTCDay();
 
       const isSunday = selectedDay === 0;
 
@@ -718,7 +957,7 @@
         return;
       }
 
-      // Demo only: no information is sent to a server.
+      // Demo only: nothing is sent to a server.
       appointmentForm.reset();
 
       successMessage.classList.remove("hidden");
