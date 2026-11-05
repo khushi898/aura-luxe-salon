@@ -1,159 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scheme-light motion-safe:scroll-smooth dark:scheme-dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Aura Luxe Salon & Spa - premium beauty and wellness services in Jaipur.">
-  <title>Aura Luxe | Premium Salon & Spa</title>
+  <meta name="description" content="Aura Luxe Salon &amp; Spa - premium beauty and wellness services in Jaipur.">
+  <title>Aura Luxe | Premium Salon &amp; Spa</title>
 
-  <!-- Apply saved theme before page renders -->
-  <script>
-    (function () {
-      try {
-        const savedTheme = localStorage.getItem("aura-luxe-theme");
-        const prefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)"
-        ).matches;
+  <link rel="icon" href="./images/favicon.svg" type="image/svg+xml">
 
-        const useDark = savedTheme
-          ? savedTheme === "dark"
-          : prefersDark;
-
-        document.documentElement.classList.toggle("dark", useDark);
-      } catch (error) {
-        document.documentElement.classList.toggle(
-          "dark",
-          window.matchMedia("(prefers-color-scheme: dark)").matches
-        );
-      }
-    })();
-  </script>
+  <!-- Sets the theme before the page paints, so there is no flash of the wrong colours -->
+  <script src="./src/theme.js"></script>
 
   <link rel="stylesheet" href="./src/output.css">
 </head>
 
-<body class="w-full overflow-x-hidden bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100">
+<body class="bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100">
+
+  <a
+    href="#main-content"
+    class="sr-only rounded-full bg-amber-700 px-5 py-3 font-semibold text-white focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60]"
+  >
+    Skip to main content
+  </a>
 
   <!-- HEADER -->
-  <header class="relative z-50 bg-white shadow-sm dark:bg-stone-900">
-
-    <nav
-      class="mx-auto max-w-6xl px-5 py-5 sm:px-6"
-      aria-label="Main navigation"
-    >
-
+  <header class="sticky top-0 z-50 border-b px-5 border-stone-200 bg-white shadow-sm dark:border-stone-700 dark:bg-stone-900">
+    <nav class="mx-auto max-w-6xl py-4" aria-label="Main navigation">
       <div class="flex items-center justify-between gap-3">
 
-        <!-- LOGO -->
         <a
           href="index.html"
-          class="shrink-0 text-xl font-bold tracking-wide text-amber-800 dark:text-amber-400 sm:text-2xl"
+          class="shrink-0 text-xl font-bold tracking-wide text-amber-800 transition hover:text-amber-600 sm:text-2xl dark:text-amber-400 dark:hover:text-amber-300"
         >
           AURA LUXE
         </a>
 
-        <!-- DESKTOP NAVIGATION -->
+        <!-- DESKTOP LINKS -->
         <div class="hidden items-center gap-6 md:flex">
-
           <a
             href="index.html"
             aria-current="page"
-            class="font-semibold text-amber-800 hover:text-amber-600 dark:text-amber-400"
+            class="font-semibold text-amber-800 transition hover:text-amber-600 dark:text-amber-400 dark:hover:text-amber-300"
           >
             Home
           </a>
 
           <a
             href="services.html"
-            class="text-stone-700 hover:text-amber-700 dark:text-stone-200 dark:hover:text-amber-400"
+            class="text-stone-700 transition hover:text-amber-700 dark:text-stone-200 dark:hover:text-amber-400"
           >
             Services
           </a>
 
           <a
             href="gallery.html"
-            class="text-stone-700 hover:text-amber-700 dark:text-stone-200 dark:hover:text-amber-400"
+            class="text-stone-700 transition hover:text-amber-700 dark:text-stone-200 dark:hover:text-amber-400"
           >
             Gallery
           </a>
 
           <a
             href="contact.html"
-            class="text-stone-700 hover:text-amber-700 dark:text-stone-200 dark:hover:text-amber-400"
+            class="text-stone-700 transition hover:text-amber-700 dark:text-stone-200 dark:hover:text-amber-400"
           >
             Contact
           </a>
-
         </div>
 
-        <!-- HEADER ACTIONS -->
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-3">
 
-          <!-- DARK MODE BUTTON -->
+          <!-- DARK MODE BUTTON: the icons swap through dark:hidden and dark:block -->
           <button
             id="theme-toggle"
             type="button"
-            aria-label="Switch to dark mode"
+            aria-label="Dark mode"
             aria-pressed="false"
-            title="Toggle light and dark mode"
-            class="rounded-full border border-amber-700 p-2 text-amber-800 transition hover:bg-amber-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600 dark:border-amber-400 dark:text-amber-300 dark:hover:bg-stone-800"
+            title="Toggle dark mode"
+            class="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-amber-700 text-amber-800 transition hover:bg-amber-100 dark:border-amber-400 dark:text-amber-300 dark:hover:bg-stone-800"
           >
-            <svg
-              id="moon-icon"
-              xmlns="http://www.w3.org/2000/svg"
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
+            <svg class="h-5 w-5 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M20.985 12.486A9 9 0 0 1 11.514 3.015a9 9 0 1 0 9.47 9.47Z"/>
             </svg>
-
-            <svg
-              id="sun-icon"
-              xmlns="http://www.w3.org/2000/svg"
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-              class="hidden"
-            >
+            <svg class="hidden h-5 w-5 dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <circle cx="12" cy="12" r="4"/>
               <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/>
             </svg>
           </button>
 
+          <a
+            href="contact.html"
+            class="hidden rounded-full bg-amber-700 px-5 py-2.5 font-semibold text-white transition hover:bg-amber-800 lg:inline-block"
+          >
+            Book Appointment
+          </a>
+
           <!-- MOBILE MENU BUTTON -->
           <button
             id="menu-button"
             type="button"
-            class="rounded-lg border border-amber-700 p-2 text-amber-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600 dark:border-amber-400 dark:text-amber-300 md:hidden"
             aria-label="Toggle navigation menu"
             aria-controls="mobile-menu"
             aria-expanded="false"
+            class="flex h-11 w-11 cursor-pointer items-center justify-center rounded-lg border border-amber-700 text-amber-800 transition hover:bg-amber-100 md:hidden dark:border-amber-400 dark:text-amber-300 dark:hover:bg-stone-800"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
               <path d="M4 6h16M4 12h16M4 18h16"/>
             </svg>
           </button>
@@ -161,49 +111,54 @@
         </div>
       </div>
 
-      <!-- MOBILE NAVIGATION -->
+      <!-- MOBILE LINKS -->
       <div
         id="mobile-menu"
-        class="mt-5 hidden flex-col gap-4 border-t border-stone-200 pt-5 dark:border-stone-700 md:hidden"
+        class="mt-4 hidden flex-col gap-3 border-t border-stone-200 pt-4 md:hidden dark:border-stone-700"
       >
-
         <a
           href="index.html"
           aria-current="page"
-          class="font-semibold text-amber-800 dark:text-amber-400"
+          class="py-1 font-semibold text-amber-800 transition hover:text-amber-600 dark:text-amber-400 dark:hover:text-amber-300"
         >
           Home
         </a>
 
         <a
           href="services.html"
-          class="text-stone-700 hover:text-amber-700 dark:text-stone-200 dark:hover:text-amber-400"
+          class="py-1 text-stone-700 transition hover:text-amber-700 dark:text-stone-200 dark:hover:text-amber-400"
         >
           Services
         </a>
 
         <a
           href="gallery.html"
-          class="text-stone-700 hover:text-amber-700 dark:text-stone-200 dark:hover:text-amber-400"
+          class="py-1 text-stone-700 transition hover:text-amber-700 dark:text-stone-200 dark:hover:text-amber-400"
         >
           Gallery
         </a>
 
         <a
           href="contact.html"
-          class="text-stone-700 hover:text-amber-700 dark:text-stone-200 dark:hover:text-amber-400"
+          class="py-1 text-stone-700 transition hover:text-amber-700 dark:text-stone-200 dark:hover:text-amber-400"
         >
           Contact
         </a>
 
+        <a
+          href="contact.html"
+          class="mt-1 rounded-full bg-amber-700 px-5 py-3 text-center font-semibold text-white transition hover:bg-amber-800"
+        >
+          Book Appointment
+        </a>
       </div>
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
 
     <!-- HERO SECTION -->
-    <section class="bg-[#faf6ef] px-5 py-16 dark:bg-stone-900 sm:px-6 lg:py-24">
+    <section class="bg-cream px-5 py-16 dark:bg-stone-900 sm:px-6 lg:py-24">
 
       <div class="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
 
@@ -214,7 +169,7 @@
             Welcome to Aura Luxe · Jaipur
           </p>
 
-          <h1 class="mb-6 break-words font-serif text-4xl leading-tight text-stone-900 dark:text-stone-50 sm:text-5xl md:text-6xl lg:text-7xl">
+          <h1 class="mb-6 break-words text-4xl leading-tight text-stone-900 dark:text-stone-50 sm:text-5xl md:text-6xl lg:text-7xl">
             Discover Your
             <span class="block italic text-amber-700 dark:text-amber-400">
               Natural Beauty
@@ -231,14 +186,14 @@
 
             <a
               href="contact.html"
-              class="rounded-full bg-amber-700 px-8 py-4 font-semibold text-white transition hover:bg-amber-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-600 dark:bg-amber-600 dark:hover:bg-amber-700"
+              class="rounded-full bg-amber-700 px-8 py-4 font-semibold text-white transition hover:bg-amber-800"
             >
               Book an Appointment
             </a>
 
             <a
               href="services.html"
-              class="rounded-full border border-amber-700 px-8 py-4 font-semibold text-amber-800 transition hover:bg-amber-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-600 dark:border-amber-400 dark:text-amber-300 dark:hover:bg-stone-800"
+              class="rounded-full border border-amber-700 px-8 py-4 font-semibold text-amber-800 transition hover:bg-amber-100 dark:border-amber-400 dark:text-amber-300 dark:hover:bg-stone-800"
             >
               Explore Services
             </a>
@@ -250,10 +205,10 @@
 
             <div>
               <p class="text-3xl font-bold text-amber-700 dark:text-amber-400">
-                10+
+                6
               </p>
               <p class="text-sm text-stone-600 dark:text-stone-300">
-                Beauty Services
+                Signature Services
               </p>
             </div>
 
@@ -274,11 +229,11 @@
 
           <img
             src="./images/salon-hero.jpeg"
-            alt="Elegant salon interior with luxurious styling stations"
+            alt="Warmly lit salon interior with product shelves, seen through open dark doors"
             class="h-[350px] w-full rounded-[2rem] object-cover shadow-2xl sm:h-[450px] lg:h-[550px]"
           >
 
-          <div class="absolute bottom-0 left-3 max-w-[calc(100%-1.5rem)] rounded-2xl bg-white p-4 shadow-xl dark:bg-stone-800 sm:left-8 sm:p-5">
+          <div class="absolute bottom-0 left-3 max-w-[calc(100%-1.5rem)] rounded-3xl bg-white p-4 shadow-xl dark:bg-stone-800 sm:left-8 sm:p-5">
 
             <p class="font-serif text-lg text-stone-900 dark:text-stone-100 sm:text-xl">
               Beauty. Elegance. Confidence.
@@ -310,7 +265,7 @@
 
           <h2
             id="services-heading"
-            class="mb-5 font-serif text-4xl text-stone-900 dark:text-stone-100 md:text-5xl"
+            class="mb-5 text-stone-900 dark:text-stone-100 text-3xl sm:text-4xl md:text-5xl"
           >
             Our Signature Services
           </h2>
@@ -327,12 +282,12 @@
         <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
           <!-- HAIR STYLING -->
-          <article class="group min-w-0 overflow-hidden rounded-3xl bg-[#faf6ef] shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl dark:bg-stone-800">
+          <article class="group min-w-0 overflow-hidden rounded-3xl bg-cream shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl dark:bg-stone-800">
 
             <div class="overflow-hidden">
               <img
                 src="./images/hair-service.jpeg"
-                alt="Professional hairstyling treatment"
+                alt="Stylist blow-drying a seated client's hair in a salon with blue walls"
                 class="h-64 w-full object-cover transition duration-500 group-hover:scale-105"
                 loading="lazy"
               >
@@ -340,7 +295,7 @@
 
             <div class="p-7">
 
-              <h3 class="mb-3 font-serif text-2xl text-stone-900 dark:text-stone-100">
+              <h3 class="mb-3 text-2xl text-stone-900 dark:text-stone-100">
                 Hair Styling
               </h3>
 
@@ -357,9 +312,9 @@
 
                 <a
                   href="services.html"
-                  class="font-semibold text-amber-800 underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 dark:text-amber-400"
+                  class="font-semibold text-amber-800 underline-offset-4 hover:underline dark:text-amber-400"
                 >
-                  Explore
+                  Explore<span class="sr-only">: Hair Styling</span>
                 </a>
 
               </div>
@@ -367,12 +322,12 @@
           </article>
 
           <!-- FACIAL & SKINCARE -->
-          <article class="group min-w-0 overflow-hidden rounded-3xl bg-[#faf6ef] shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl dark:bg-stone-800">
+          <article class="group min-w-0 overflow-hidden rounded-3xl bg-cream shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl dark:bg-stone-800">
 
             <div class="overflow-hidden">
               <img
                 src="./images/facial-service.jpeg"
-                alt="Relaxing professional facial treatment"
+                alt="Therapist in pink gloves brushing a treatment mask onto a client's face"
                 class="h-64 w-full object-cover transition duration-500 group-hover:scale-105"
                 loading="lazy"
               >
@@ -380,7 +335,7 @@
 
             <div class="p-7">
 
-              <h3 class="mb-3 font-serif text-2xl text-stone-900 dark:text-stone-100">
+              <h3 class="mb-3 text-2xl text-stone-900 dark:text-stone-100">
                 Facial &amp; Skincare
               </h3>
 
@@ -397,9 +352,9 @@
 
                 <a
                   href="services.html"
-                  class="font-semibold text-amber-800 underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 dark:text-amber-400"
+                  class="font-semibold text-amber-800 underline-offset-4 hover:underline dark:text-amber-400"
                 >
-                  Explore
+                  Explore<span class="sr-only">: Facial &amp; Skincare</span>
                 </a>
 
               </div>
@@ -407,12 +362,12 @@
           </article>
 
           <!-- SPA & WELLNESS -->
-          <article class="group min-w-0 overflow-hidden rounded-3xl bg-[#faf6ef] shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl dark:bg-stone-800">
+          <article class="group min-w-0 overflow-hidden rounded-3xl bg-cream shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl dark:bg-stone-800">
 
             <div class="overflow-hidden">
               <img
                 src="./images/spa-service.jpeg"
-                alt="Peaceful spa and wellness treatment"
+                alt="Therapist's hands giving a client a relaxing back massage"
                 class="h-64 w-full object-cover transition duration-500 group-hover:scale-105"
                 loading="lazy"
               >
@@ -420,7 +375,7 @@
 
             <div class="p-7">
 
-              <h3 class="mb-3 font-serif text-2xl text-stone-900 dark:text-stone-100">
+              <h3 class="mb-3 text-2xl text-stone-900 dark:text-stone-100">
                 Spa &amp; Wellness
               </h3>
 
@@ -437,9 +392,9 @@
 
                 <a
                   href="services.html"
-                  class="font-semibold text-amber-800 underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 dark:text-amber-400"
+                  class="font-semibold text-amber-800 underline-offset-4 hover:underline dark:text-amber-400"
                 >
-                  Explore
+                  Explore<span class="sr-only">: Spa &amp; Wellness</span>
                 </a>
 
               </div>
@@ -452,7 +407,7 @@
 
           <a
             href="services.html"
-            class="inline-block rounded-full bg-amber-700 px-9 py-4 font-semibold text-white transition hover:bg-amber-800 focus-visible:outline-2 focus-visible:outline-offset-4 dark:bg-amber-600 dark:hover:bg-amber-700"
+            class="inline-block rounded-full bg-amber-700 px-9 py-4 font-semibold text-white transition hover:bg-amber-800"
           >
             View All Services
           </a>
@@ -463,7 +418,7 @@
 
     <!-- WHY CHOOSE US -->
     <section
-      class="bg-[#faf6ef] px-5 py-20 dark:bg-stone-900 sm:px-6 lg:py-24"
+      class="bg-cream px-5 py-20 dark:bg-stone-900 sm:px-6 lg:py-24"
       aria-labelledby="why-heading"
     >
 
@@ -477,7 +432,7 @@
 
           <h2
             id="why-heading"
-            class="font-serif text-4xl font-bold text-stone-900 dark:text-stone-100 md:text-5xl"
+            class="text-stone-900 dark:text-stone-100 text-3xl sm:text-4xl md:text-5xl"
           >
             Why Choose Aura Luxe?
           </h2>
@@ -499,7 +454,7 @@
               ✨
             </div>
 
-            <h3 class="mb-3 font-serif text-2xl font-bold text-stone-900 dark:text-stone-100">
+            <h3 class="mb-3 text-2xl text-stone-900 dark:text-stone-100">
               Expert Care
             </h3>
 
@@ -517,7 +472,7 @@
               🌿
             </div>
 
-            <h3 class="mb-3 font-serif text-2xl font-bold text-stone-900 dark:text-stone-100">
+            <h3 class="mb-3 text-2xl text-stone-900 dark:text-stone-100">
               Premium Products
             </h3>
 
@@ -535,7 +490,7 @@
               💆
             </div>
 
-            <h3 class="mb-3 font-serif text-2xl font-bold text-stone-900 dark:text-stone-100">
+            <h3 class="mb-3 text-2xl text-stone-900 dark:text-stone-100">
               Relaxing Atmosphere
             </h3>
 
@@ -566,7 +521,7 @@
 
           <h2
             id="testimonials-heading"
-            class="font-serif text-4xl text-stone-900 dark:text-stone-100 md:text-5xl"
+            class="text-stone-900 dark:text-stone-100 text-3xl sm:text-4xl md:text-5xl"
           >
             What Our Clients Say
           </h2>
@@ -581,10 +536,11 @@
         <!-- TESTIMONIAL GRID -->
         <div class="grid gap-8 md:grid-cols-3">
 
-          <article class="min-w-0 rounded-3xl bg-[#faf6ef] p-8 shadow-sm dark:bg-stone-800">
+          <article class="min-w-0 rounded-3xl bg-cream p-8 shadow-sm dark:bg-stone-800">
 
-            <p class="mb-5 text-xl text-amber-700 dark:text-amber-400" aria-label="5 out of 5 stars">
-              ★★★★★
+            <p class="mb-5 text-xl text-amber-700 dark:text-amber-400">
+              <span aria-hidden="true">★★★★★</span>
+              <span class="sr-only">Rated 5 out of 5 stars</span>
             </p>
 
             <blockquote class="mb-7 leading-relaxed text-stone-700 dark:text-stone-300">
@@ -596,16 +552,17 @@
               Priya S.
             </p>
 
-            <p class="text-sm text-stone-500 dark:text-stone-400">
+            <p class="text-sm text-stone-600 dark:text-stone-400">
               Sample client review
             </p>
 
           </article>
 
-          <article class="min-w-0 rounded-3xl bg-[#faf6ef] p-8 shadow-sm dark:bg-stone-800">
+          <article class="min-w-0 rounded-3xl bg-cream p-8 shadow-sm dark:bg-stone-800">
 
-            <p class="mb-5 text-xl text-amber-700 dark:text-amber-400" aria-label="5 out of 5 stars">
-              ★★★★★
+            <p class="mb-5 text-xl text-amber-700 dark:text-amber-400">
+              <span aria-hidden="true">★★★★★</span>
+              <span class="sr-only">Rated 5 out of 5 stars</span>
             </p>
 
             <blockquote class="mb-7 leading-relaxed text-stone-700 dark:text-stone-300">
@@ -617,16 +574,17 @@
               Ananya M.
             </p>
 
-            <p class="text-sm text-stone-500 dark:text-stone-400">
+            <p class="text-sm text-stone-600 dark:text-stone-400">
               Sample client review
             </p>
 
           </article>
 
-          <article class="min-w-0 rounded-3xl bg-[#faf6ef] p-8 shadow-sm dark:bg-stone-800">
+          <article class="min-w-0 rounded-3xl bg-cream p-8 shadow-sm dark:bg-stone-800">
 
-            <p class="mb-5 text-xl text-amber-700 dark:text-amber-400" aria-label="5 out of 5 stars">
-              ★★★★★
+            <p class="mb-5 text-xl text-amber-700 dark:text-amber-400">
+              <span aria-hidden="true">★★★★★</span>
+              <span class="sr-only">Rated 5 out of 5 stars</span>
             </p>
 
             <blockquote class="mb-7 leading-relaxed text-stone-700 dark:text-stone-300">
@@ -638,7 +596,7 @@
               Riya K.
             </p>
 
-            <p class="text-sm text-stone-500 dark:text-stone-400">
+            <p class="text-sm text-stone-600 dark:text-stone-400">
               Sample client review
             </p>
 
@@ -646,78 +604,95 @@
 
         </div>
 
-        <p class="mt-8 text-center text-sm text-stone-500 dark:text-stone-400">
+        <p class="mt-8 text-center text-sm text-stone-600 dark:text-stone-400">
           Illustrative testimonials for this fictional business.
         </p>
 
       </div>
     </section>
 
+    <!-- BUSINESS HOURS AND CALL TO ACTION -->
+    <section
+      class="bg-amber-900 px-5 py-16 text-white dark:bg-stone-900"
+      aria-labelledby="visit-heading"
+    >
+      <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-8 text-center md:flex-row md:text-left">
+
+        <div>
+          <h2 id="visit-heading" class="mb-4 text-3xl sm:text-4xl md:text-5xl">
+            Plan Your Visit
+          </h2>
+          <p class="text-amber-100 dark:text-stone-200">
+            Monday – Saturday: 10 AM – 8 PM
+          </p>
+          <p class="text-amber-100 dark:text-stone-200">
+            Sunday: 11 AM – 6 PM
+          </p>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="contact.html"
+            class="rounded-full bg-white px-8 py-4 font-semibold text-amber-900 transition hover:bg-amber-100 focus-visible:outline-white"
+          >
+            Book an Appointment
+          </a>
+          <a
+            href="contact.html#visit-heading"
+            class="rounded-full border border-white px-8 py-4 font-semibold text-white transition hover:bg-amber-800 focus-visible:outline-white dark:hover:bg-stone-800"
+          >
+            Get Directions
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
   </main>
 
   <!-- FOOTER -->
-  <footer class="bg-stone-900 px-6 py-8 text-center text-white dark:bg-black">
+  <footer class="bg-stone-900 px-5 py-12 text-stone-300 dark:bg-black">
+    <div class="mx-auto flex max-w-6xl flex-col justify-between gap-8 md:flex-row">
 
-    <p>
-      &copy; 2026 Aura Luxe Salon &amp; Spa.
-      All rights reserved.
+      <div>
+        <p class="mb-3 text-2xl font-bold text-amber-400">
+          AURA LUXE
+        </p>
+        <p>Salon &amp; Spa | C-Scheme, Jaipur, Rajasthan</p>
+        <p class="mt-2 text-sm">
+          Fictional business website created for a portfolio assignment.
+        </p>
+      </div>
+
+      <nav class="shrink-0" aria-labelledby="footer-links-heading">
+        <h2 id="footer-links-heading" class="mb-3 text-lg font-semibold text-white">
+          Quick Links
+        </h2>
+        <div class="flex flex-col gap-2">
+          <a href="index.html" class="transition hover:text-amber-400">Home</a>
+          <a href="services.html" class="transition hover:text-amber-400">Services</a>
+          <a href="gallery.html" class="transition hover:text-amber-400">Gallery</a>
+          <a href="contact.html" class="transition hover:text-amber-400">Contact</a>
+        </div>
+      </nav>
+
+      <div class="shrink-0">
+        <h2 class="mb-3 text-lg font-semibold text-white">
+          Opening Hours
+        </h2>
+        <p>Monday – Saturday: 10 AM – 8 PM</p>
+        <p>Sunday: 11 AM – 6 PM</p>
+      </div>
+
+    </div>
+
+    <p class="mx-auto mt-10 max-w-6xl border-t border-stone-700 pt-6 text-center text-sm">
+      &copy; 2026 Aura Luxe Salon &amp; Spa. Demo website.
     </p>
-
   </footer>
 
-  <!-- JAVASCRIPT -->
-  <script>
-    // MOBILE NAVIGATION
-    const menuButton = document.getElementById("menu-button");
-    const mobileMenu = document.getElementById("mobile-menu");
-
-    menuButton.addEventListener("click", () => {
-      const isOpen =
-        menuButton.getAttribute("aria-expanded") === "true";
-
-      menuButton.setAttribute("aria-expanded", String(!isOpen));
-
-      mobileMenu.classList.toggle("hidden", isOpen);
-      mobileMenu.classList.toggle("flex", !isOpen);
-    });
-
-    // DARK MODE TOGGLE
-    const themeToggle = document.getElementById("theme-toggle");
-    const moonIcon = document.getElementById("moon-icon");
-    const sunIcon = document.getElementById("sun-icon");
-
-    function updateThemeButton() {
-      const isDark =
-        document.documentElement.classList.contains("dark");
-
-      themeToggle.setAttribute("aria-pressed", String(isDark));
-      themeToggle.setAttribute(
-        "aria-label",
-        isDark ? "Switch to light mode" : "Switch to dark mode"
-      );
-
-      moonIcon.classList.toggle("hidden", isDark);
-      sunIcon.classList.toggle("hidden", !isDark);
-    }
-
-    themeToggle.addEventListener("click", () => {
-      const isDark =
-        document.documentElement.classList.toggle("dark");
-
-      try {
-        localStorage.setItem(
-          "aura-luxe-theme",
-          isDark ? "dark" : "light"
-        );
-      } catch (error) {
-        // Theme still works if storage is unavailable.
-      }
-
-      updateThemeButton();
-    });
-
-    updateThemeButton();
-  </script>
+  <script src="./src/main.js"></script>
 
 </body>
 </html>
