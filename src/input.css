@@ -1,38 +1,40 @@
 @import "tailwindcss";
 
-/* Enable dark: utilities using the .dark class */
+/* Lets dark: utilities follow the .dark class that src/theme.js sets on <html>. */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Global layout */
-html,
-body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
+/* Brand colour, used as bg-cream. */
+@theme {
+  --color-cream: #faf6ef;
 }
 
-body {
-  margin: 0;
+/*
+  These rules live in the base layer so Tailwind utilities can still override them.
+  Unlayered CSS would beat every utility class.
+*/
+@layer base {
+  /* Two font families: serif for headings, Tailwind's default sans for everything else. */
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif);
+  }
+
+  /* One keyboard focus style for every interactive element on the site. */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid var(--color-amber-600);
+    outline-offset: 3px;
+  }
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Accessible focus indicators */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-  outline: 2px solid #d97706;
-  outline-offset: 3px;
-}
-
-/* Respect reduced-motion preferences */
+/* Turns off hover and scroll animation for people who ask for reduced motion. */
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+  * {
+    transition: none !important;
+    scroll-behavior: auto !important;
   }
 }
